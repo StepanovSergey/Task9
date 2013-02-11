@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/pages/template/newsTemplate.xhtml">
+	<ui:define name="page_title">
+		News List
+	</ui:define>
+	<ui:define name="content">
+		<f:event listener="#{newsBean.list }" type="preRenderView" />
+		<span class="contentNewsTitle"><h:outputText
+				value="#{msg['news.news']}" /></span>
+		<h:outputText value="&gt;&gt;" />
+		<h:outputText value="#{msg['menu.news.list']}" />
+		<br></br>
+		<br></br>
+		<h:form>
+			<ui:repeat var="news" value="#{newsBean.newsList }">
+				<table class="newsListTable">
+					<tr>
+						<td class='newsListTableTitle'><h:outputText
+								value="#{news.title }" /></td>
+						<td><h:outputText value="#{news.date }">
+								<f:convertDateTime pattern="#{msg['date.pattern']}" />
+							</h:outputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="#{news.brief }" /></td>
+					</tr>
+					<tr>
+						<td class='newsListTableLinks' colspan="2"><h:commandLink 
+								value="#{msg['news.list.view']}" action="view" >
+								<f:param name="id" value="#{news.id} }"></f:param>
+							</h:commandLink> 
+							<h:outputText value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;" escape="false" /> 
+							<h:outputText value="#{msg['news.list.edit']}" /> 
+							<h:outputText value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;" escape="false" /></td>
+					</tr>
+				</table>
+			</ui:repeat>
+		</h:form>
+	</ui:define>
+	<br></br>
+</ui:composition>
+</html>

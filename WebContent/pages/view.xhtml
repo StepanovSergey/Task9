@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/pages/template/newsTemplate.xhtml">
+	<ui:define name="page_title">
+		View News
+	</ui:define>
+	<ui:define name="content">
+		<f:event listener="#{newsBean.view }" type="preRenderView" />
+		<span class="contentNewsTitle"><h:outputText
+				value="#{msg['news.news']}" /></span>
+		<h:outputText value="&gt;&gt;" />
+		<h:outputText value="#{msg['news.view.title']}" />
+		<br></br>
+		<br></br>
+		<table>
+			<tr>
+				<td class="newsTableTitles"><h:outputText
+						value="#{msg['news.title']}" /></td>
+				<td><h:outputText value="#{news.title }" /></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="#{msg['news.date']}" /></td>
+				<td><h:outputText value="#{news.date }">
+						<f:convertDateTime pattern="#{msg['date.pattern']}" />
+					</h:outputText></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="#{msg['news.brief']}" /></td>
+				<td><h:outputText value="#{news.brief }" /></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="#{msg['news.content']}" /></td>
+				<td><h:outputText value="#{news.content }" /></td>
+			</tr>
+		</table>
+		<table class="newsListTable">
+			<tr>
+				<td class="afterTableButtons">
+					<!-- <bean:message key="news.edit" /> -->
+			Edit button
+				</td>
+				<td><!-- <bean:message key="news.delete" /> --> Delete button
+				</td>
+			</tr>
+		</table>
+		<br></br>
+	</ui:define>
+</ui:composition>
+</html>

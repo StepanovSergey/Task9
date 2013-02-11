@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+	<h:head>
+		<title><ui:insert name="page_title">Template Title</ui:insert></title>
+		<h:outputStylesheet library="css" name="style.css" />
+		<h:outputScript library="js" name="script.js" />
+	</h:head>
+	<body>
+		<!-- Header -->
+		<table class="header">
+			<tr>
+				<td rowspan="2" class="header_title"><ui:insert
+						name="header_title">
+						<ui:include src="headerTitle.xhtml" />
+					</ui:insert></td>
+			</tr>
+			<tr>
+				<td class="header_languages"><ui:insert name="header_lang">
+						<ui:include src="headerLang.xhtml" />
+					</ui:insert></td>
+			</tr>
+		</table>
+		<!-- Menu and content -->
+		<table class="menu_content">
+			<!-- Menu -->
+			<tr>
+				<td class="menu">
+					<div class="menu_div">
+						<br></br>
+						<ui:insert name="menu">
+							<ui:include src="menu.xhtml" />
+						</ui:insert>
+						<br></br>
+					</div>
+				</td>
+				<!-- Content -->
+				<td class="content"><ui:insert name="content" /></td>
+			</tr>
+		</table>
+		<!-- Footer -->
+		<table class="footer">
+			<tr>
+				<td><ui:insert name="footer">
+						<ui:include src="footer.xhtml" />
+					</ui:insert></td>
+			</tr>
+		</table>
+	</body>
+</f:view>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<p class="menu_title">
+	<h:outputText value="#{msg['menu.news.title']}" />
+</p>
+<form>
+	<div class="menu_ul">
+		<ul>
+			<li><h:link value="#{msg['menu.news.list']}"
+					outcome="list.xhtml" /></li>
+			<li><h:link value="#{msg['menu.news.add']}" outcome="add.xhtml" /></li>
+		</ul>
+	</div>
+</form>
+</html>
