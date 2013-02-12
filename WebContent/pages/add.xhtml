@@ -12,74 +12,45 @@
 		<span class="contentNewsTitle"><h:outputText
 				value="#{msg['news.news']}" /></span>
 		<h:outputText value="&gt;&gt;" />
-		<h:outputText value="#{msg['menu.news.list']}" />
+		<h:outputText value="#{msg['news.add.title']}" />
 		<br></br>
 		<br></br>
-		<h:form>
-			<ui:repeat var="news" value="#{newsBean.newsList }">
-				<table class="newsListTable">
-					<tr>
-						<td class='newsListTableTitle'><h:outputText
-								value="#{news.title }" /></td>
-						<td><h:outputText value="#{news.date }">
-								<f:convertDateTime pattern="#{msg['date.pattern']}" />
-							</h:outputText></td>
-					</tr>
-					<tr>
-						<td><h:outputText value="#{news.brief }" /></td>
-					</tr>
-					<tr>
-						<td class='newsListTableLinks' colspan="2"><h:outputText
-								value="#{msg['news.list.view']}" /> <h:outputText
-								value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;" escape="false" />
-							<h:outputText value="#{msg['news.list.edit']}" /> <h:outputText
-								value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;" escape="false" /></td>
-					</tr>
-				</table>
-
-			</ui:repeat>
-		</h:form>
+	
+	<!-- <h:form action="/SaveNews"
+	onsubmit="return validateAddEditNewsForm(this)">
+	<table>
+		<tr>
+			<td class="newsTableTitles"><bean:message key='news.title' /></td>
+			<td><html:text size="100" name="newsForm" property="news.title" /></td>
+		</tr>
+		<tr>
+			<td><bean:message key="news.date" /></td>
+			<td><html:text size="10" name="newsForm" property="dateString" /></td>
+		</tr>
+		<tr>
+			<td><bean:message key="news.brief" /></td>
+			<td><html:textarea rows="5" cols="100" name="newsForm"
+					property="news.brief" /></td>
+		</tr>
+		<tr>
+			<td><bean:message key="news.content" /></td>
+			<td><html:textarea rows="10" cols="100" name="newsForm"
+					property="news.content" /></td>
+		</tr>
+	</table>
+	<table class="newsListTable">
+		<tr>
+			<td class="afterTableButtons"><html:submit>
+					<bean:message key="news.save" />
+				</html:submit> <html:hidden name="newsForm" property="news.id" /></td>
+			<td><input type="button"
+				value="<bean:message key="news.cancel"/>"
+				onclick="location.replace('Cancel.do')" /></td>
+		</tr>
+	</table>
+	<br>
+</h:form> -->
+			
 	</ui:define>
-	<!-- <html:form action="/DeleteGroupOfNews"
-	onsubmit="return deleteGroupOfNews()">
-	<logic:empty name="newsForm" property="newsList">
-		<bean:message key="news.noNews" />
-	</logic:empty>
-	<logic:iterate id="news" property="newsList" name="newsForm">
-		<table class="newsListTable">
-			<tr>
-				<td class='newsListTableTitle'><bean:write name="news"
-						property="title" /></td>
-				<td><bean:write name="news" property="date"
-						formatKey="date.pattern" /></td>
-			</tr>
-			<tr>
-				<td><bean:write name="news" property="brief" /></td>
-			</tr>
-			<tr>
-				<bean:define name="news" id="newsId" property="id" />
-				<td class='newsListTableLinks' colspan="2"><html:link
-						action="ViewNews" paramName="newsId" paramId="news.id">
-						<bean:message key="news.list.view"></bean:message>
-					</html:link> &nbsp;&nbsp;&nbsp;&nbsp; <html:link action="EditNews"
-						paramName="newsId" paramId="news.id">
-						<bean:message key="news.list.edit"></bean:message>
-					</html:link> &nbsp;&nbsp;&nbsp;&nbsp; <html:multibox property="selectedItems">
-						<bean:write name='news' property='id' />
-					</html:multibox></td>
-			</tr>
-		</table>
-	</logic:iterate>
-	<logic:notEmpty name="newsForm" property="newsList">
-		<table class="newsListTable">
-			<tr>
-				<td class="afterTableButtons"><html:submit>
-						<bean:message key="news.delete" />
-					</html:submit></td>
-			</tr>
-		</table>
-	</logic:notEmpty>
-</html:form> -->
-	<br></br>
 </ui:composition>
 </html>
